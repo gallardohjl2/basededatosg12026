@@ -36,3 +36,32 @@ FROM alumno;
 UPDATE alumno
 SET nombre = 'MONICO'
 WHERE id = 1;
+
+
+
+CREATE DATABASE pruebaatributos;
+
+CREATE TABLE alumno(
+ num_alumno int not null primary key, 
+ nombre varchar(50) not null, 
+ apellido_1 varchar (30) not null, 
+ apellido_2 varchar (30) NULL, 
+ fecha_naci date NOT NULL
+);
+
+
+INSERT INTO alumno
+VALUES (1, 'Angel Patricio', 'Perez', 'Hernandez', '1998-09-08');
+
+INSERT INTO alumno
+VALUES (2, 'Ian Uriel', 'Rizo', NULL, '2007-07-25');
+
+SELECT * 
+FROM alumno; 
+
+
+SELECT 
+	nombre, apellido_1, apellido_2, YEAR(fecha_naci), 
+	MONTH(fecha_naci), DAY(fecha_naci), 
+	(DATEDIFF(year, fecha_naci, GETDATE())) AS Edad
+FROM alumno; 
